@@ -19,10 +19,26 @@ display: flex;
 flex-direction: row;
 align-items: center;
 `
+const Logout = styled.button`
+cursor:pointer;
+color: #fff;
+background-color: #d9534f;
+border-color: #d43f3a;
+border: 1px solid transparent;
+border-radius: 20px;
+width: 80px;
+height: 45px;
+margin-right: 20px;
+`
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
+    }
+
+    signOutHandler = () => {
+        localStorage.removeItem('jwt'); 
+        this.props.history.push('/'); 
     }
 
     render() {
@@ -55,6 +71,7 @@ class Navbar extends Component {
                 </Link>
             </Page>
             </Links>
+            <Logout onClick = {this.signOutHandler}>Logout</Logout>
             </Contents>
         </Nav>
       );

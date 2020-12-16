@@ -29,16 +29,18 @@ padding-top: 40px;
   export default class Home extends Component {
     constructor(props) {
       super(props);
+        this.state = {
+
+      }
     }
 
     componentDidMount = () => {
       const token = localStorage.getItem('jwt'); 
-      const requestOptions = {
-          headers: {
-              Authorization: token
-          }
-      }
+
       console.log("token",token)
+      if(token === null){
+        this.props.history.push('/login'); 
+      }
     }
 
     render() {

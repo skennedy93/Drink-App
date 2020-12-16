@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Drink from './Drink'
+
 
 const Container = styled.div`
 display: flex;
@@ -12,6 +13,7 @@ const Favorites = props =>{
 
   return (
             <Container>
+
             {props.favorites.map(drink => (
               <Drink
               key = {drink.idDrink}

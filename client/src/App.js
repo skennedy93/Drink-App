@@ -6,7 +6,6 @@ import NavBar from "./components/Navbar";
 import Favorites from "./components/Favorites"
 import {
   Route,
-  Redirect ,
 } from "react-router-dom";
 import LoginPage from './components/Login';
 import DrinkInfo from './components/DrinkInfo';
