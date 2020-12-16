@@ -30,7 +30,7 @@ export default class App extends Component {
         loading: true,
       };
     }
-
+  
   componentDidMount() {
       fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
         .then(res => res.json())
@@ -50,19 +50,20 @@ export default class App extends Component {
           }
         )
     }
-    
+
 
   render() {
 
       return (
     <div className="App">
       <Container>
-            <Route exact path='/' component={LoginPage}/>
-            <Route exact path='/register' component={SignupPage}/>
-            <Redirect to="/home" />
+        
+            <Route exact path='/' component={SignupPage}/>
+            <Route exact path='/login' component={LoginPage}/>
+
             <Route render={props => <NavBar {...props}
             user={this.state.authUser}/>}/>
-            <Route path='/home' render={props => <Home {...props}
+            <Route exact path='/home' render={props => <Home {...props}
             drinks={this.state.drinks}/>}
             />
             <Route path="/drink/:id" render={props => <DrinkInfo {...props}

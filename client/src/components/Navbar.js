@@ -2,6 +2,23 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 
+const Nav = styled.div`
+background-color: #222;
+border-color: #080808;
+`
+const Contents = styled.div`
+display: flex;
+justify-content: space-between;
+`
+const Page = styled.h2`
+padding: 20px;
+font-size: 25px;
+`
+const Links = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+`
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -10,10 +27,10 @@ class Navbar extends Component {
 
     render() {
       return (
-        <div>
-            <div>
-
-            <div>
+        <Nav>
+            <Contents>
+        <Links>
+            <Page>
                 <Link
                 to="/home"
                 style={{
@@ -24,8 +41,8 @@ class Navbar extends Component {
                 >
                     Home
                 </Link>
-            </div>
-            <div>
+            </Page>
+            <Page>
                 <Link 
                 to="/favorites"
                 style={{
@@ -36,10 +53,10 @@ class Navbar extends Component {
                 >
                     Favorites
                 </Link>
-            </div>
-
-            </div>
-        </div>
+            </Page>
+            </Links>
+            </Contents>
+        </Nav>
       );
     }
   }
