@@ -3,13 +3,14 @@ import axios from 'axios';
 import styled from 'styled-components'
 
 const Form = styled.form`
-position: relative;
-z-index: 1;
 background: #FFFFFF;
 max-width: 360px;
-margin: 0 auto 100px;
+margin: auto;
 padding: 45px;
 text-align: center;
+`
+const Container = styled.div`
+padding-top: 10%
 `
 const Input = styled.input`
 font-family: "Roboto", sans-serif;
@@ -22,7 +23,7 @@ padding: 15px;
 box-sizing: border-box;
 font-size: 14px;
 `
-const Submit = styled.h2`
+const Submit = styled.button`
 font-family: "Roboto", sans-serif;
 text-transform: uppercase;
 outline: 0;
@@ -78,8 +79,10 @@ class SignupPage extends React.Component{
 
     render(){
         return(
+            <Container>
             <div onSubmit = {this.onSubmitHandler} className = 'signup'>
                 <Form>
+                    <h1>Registration</h1>
                     <Input
                      type = "text" 
                      placeholder = "Username" 
@@ -92,10 +95,11 @@ class SignupPage extends React.Component{
                     onChange = {this.onInputChangeHandler} 
                     value = {this.state.password} 
                     name = "password" />
-                    <button type = "submit">Sign Up</button>
+                    <Submit type = "submit">Sign Up</Submit>
                     <BottomText>Already registered? <a href="/login">Log in</a></BottomText>
                 </Form>
             </div>
+            </Container>
         )
     }
 }

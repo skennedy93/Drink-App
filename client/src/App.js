@@ -2,7 +2,6 @@ import './App.css';
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Home from "./components/Home";
-import NavBar from "./components/Navbar";
 import Favorites from "./components/Favorites"
 import {
   Route,
@@ -15,6 +14,7 @@ const Container = styled.div`
 font-family: Tahoma, Geneva, sans-serif;
 width:100%;
 background-color: #f7f7f7;
+height: 100vh
 `
 
 export default class App extends Component {
@@ -54,14 +54,13 @@ export default class App extends Component {
   render() {
 
       return (
-    <div className="App">
       <Container>
         
             <Route exact path='/' component={SignupPage}/>
             <Route exact path='/login' component={LoginPage}/>
 
-            <Route render={props => <NavBar {...props}
-            user={this.state.authUser}/>}/>
+            {/* <Route render={props => <NavBar {...props}
+            user={this.state.authUser}/>}/> */}
             <Route exact path='/home' render={props => <Home {...props}
             drinks={this.state.drinks}/>}
             />
@@ -75,8 +74,6 @@ export default class App extends Component {
             favorites={this.state.favorites}/>}
             />
       </Container>
-       </div>
-
       )
   }
 }

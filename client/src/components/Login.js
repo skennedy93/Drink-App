@@ -11,6 +11,9 @@ margin: 0 auto 100px;
 padding: 45px;
 text-align: center;
 `
+const Container = styled.div`
+padding-top: 10%
+`
 const Input = styled.input`
 font-family: "Roboto", sans-serif;
 outline: 0;
@@ -27,7 +30,6 @@ font-family: "Roboto", sans-serif;
 text-transform: uppercase;
 outline: 0;
 background: #4CAF50;
-width: 100%;
 border: 0;
 padding: 15px;
 color: #FFFFFF;
@@ -79,8 +81,10 @@ class Login extends React.Component{
 
     render(){
         return(
+            <Container>
             <div onSubmit = {this.onSubmitHandler} className = 'login'>
                 <Form>
+                    <h1>Login</h1>
                     <Input
                         type = "text"
                         placeholder = "Username" 
@@ -94,10 +98,11 @@ class Login extends React.Component{
                         onChange = {this.onInputChangeHandler}
                         value = {this.state.password}
                         name = "password" />
-                    <button type = "submit">Login</button>
+                    <Submit type = "submit">Login</Submit>
                     <BottomText>Don't have an account yet? <a href="/">Register</a></BottomText>
                 </Form>
             </div>
+            </Container>
         )
     }
 }

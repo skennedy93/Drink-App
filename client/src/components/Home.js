@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Drink from './Drink'
+import Navbar from './Navbar';
 
 const Container = styled.div`
 display: flex;
@@ -25,7 +26,11 @@ padding-top: 40px;
   // export default Home;
 
   
-  
+    // signOutHandler = () => {
+    //     localStorage.removeItem('jwt'); 
+    //     this.props.history.push('/'); 
+    // }
+
   export default class Home extends Component {
     constructor(props) {
       super(props);
@@ -45,7 +50,10 @@ padding-top: 40px;
 
     render() {
       return (
-        <Container>
+        <>
+        <Navbar/>
+        <Container> 
+
         {this.props.drinks.map(drink => (
           <Drink
           key = {drink.idDrink}
@@ -54,6 +62,7 @@ padding-top: 40px;
           image = {drink.strDrinkThumb}/>
         ))}
         </Container>
+        </>
       )
     }
   }
