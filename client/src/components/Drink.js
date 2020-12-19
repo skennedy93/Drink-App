@@ -1,19 +1,34 @@
 import React from "react";
-// import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+
+const Box = styled.div`
+padding:5px;
+`
+const Title = styled.h1`
+color:white;
+position: absolute;
+padding-left: 10px;
+`
+const Image = styled.div`
+cursor:pointer;
+border-radius: 15px;
+overflow: hidden;
+}
+`
 
 const Drink = ({title, image, id})=>{
 
 return (
   <Link to={`/drink/${id}`}>
-  <div>
-  <h1 >
+  <Box>
+  <Title >
       {title}
-  </h1>
-  <div>
+  </Title>
+  <Image>
       <img src ={image} alt="Drink" width="270" height="270"/>
-  </div>
-</div>
+  </Image>
+</Box>
 </Link>
 );
 };

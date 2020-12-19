@@ -9,6 +9,7 @@ border-color: #080808;
 const Contents = styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
 `
 const Page = styled.h2`
 padding: 20px;

@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Home from "./components/Home";
@@ -14,7 +13,6 @@ const Container = styled.div`
 font-family: Tahoma, Geneva, sans-serif;
 width:100%;
 background-color: #f7f7f7;
-height: 100vh
 `
 
 export default class App extends Component {
@@ -55,12 +53,8 @@ export default class App extends Component {
 
       return (
       <Container>
-        
             <Route exact path='/' component={SignupPage}/>
             <Route exact path='/login' component={LoginPage}/>
-
-            {/* <Route render={props => <NavBar {...props}
-            user={this.state.authUser}/>}/> */}
             <Route exact path='/home' render={props => <Home {...props}
             drinks={this.state.drinks}/>}
             />
