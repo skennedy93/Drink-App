@@ -29,6 +29,15 @@ export default class DrinkInfo extends Component {
     };
   }
 
+  componentDidMount = () => {
+    const token = localStorage.getItem('jwt'); 
+
+    console.log("token",token)
+    if(token === null){
+      this.props.history.push('/login'); 
+    }
+  }
+
   render() {
 
       const drink = this.props.drinks.find(drink => drink.idDrink.toString() === this.props.match.params.id);
