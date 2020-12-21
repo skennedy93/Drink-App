@@ -21,10 +21,8 @@ export default class App extends Component {
       super(props);
       this.state = {
         error: null,
-        isLoaded: false,
         drinks: [],
         favorites:[],
-        loading: true,
       };
     }
   
@@ -34,14 +32,12 @@ export default class App extends Component {
         .then(
           (result) => {
             this.setState({
-              isLoaded: true,
               drinks: result.drinks
             });
             console.log(result)
           },
           (error) => {
             this.setState({
-              isLoaded: true,
               error
             });
           }
