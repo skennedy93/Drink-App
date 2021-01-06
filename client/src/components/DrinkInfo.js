@@ -20,6 +20,9 @@ const Instructions = styled.h2`
 color: #4d4d4d;
 font-size: 24px;
 `
+const Favorite = styled.div`
+cursor:pointer
+`
 
 export default class DrinkInfo extends Component {
   constructor(props) {
@@ -37,6 +40,16 @@ export default class DrinkInfo extends Component {
       this.props.history.push('/login'); 
     }
   }
+
+  toggleFavorite = () => {
+    const drink = this.props.drinks.find(drink => drink.idDrink.toString() === this.props.match.params.id);
+    this.setState(state => ({ isFavorited: !state.isFavorited }))
+
+    console.log("id",this.props.drinks)
+    console.log("drunkkk",drink)
+    console.log("favs",this.props.favorites)
+  }
+  getImageName = () => this.state.isFavorited ? 'favorited' : 'notFavorited'
 
   render() {
 
@@ -64,6 +77,9 @@ export default class DrinkInfo extends Component {
     <Ingredient>{drink.strIngredient8}</Ingredient>
     <Ingredient>{drink.strIngredient9}</Ingredient>
     <Ingredient>{drink.strIngredient10}</Ingredient>
+    <Favorite>
+        <img src={imagesPath[imageName]} alt="Favorite" onClick={this.toggleFavorite} width="100" height="100"/>
+    </Favorite>
         <img src ={drink.strDrinkThumb} alt="Drink Pic" width="450" height="450"/>
   </Box>
   </>
