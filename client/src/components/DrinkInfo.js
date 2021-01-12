@@ -20,7 +20,7 @@ const Instructions = styled.h2`
 color: #4d4d4d;
 font-size: 24px;
 `
-const Favorite = styled.div`
+const Favorite = styled.button`
 cursor:pointer
 `
 
@@ -28,7 +28,7 @@ export default class DrinkInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFavorited: false
+      isFavorited: false,
     };
   }
 
@@ -39,25 +39,34 @@ export default class DrinkInfo extends Component {
     if(token === null){
       this.props.history.push('/login'); 
     }
+    
   }
 
-  toggleFavorite = () => {
-    const drink = this.props.drinks.find(drink => drink.idDrink.toString() === this.props.match.params.id);
-    this.setState(state => ({ isFavorited: !state.isFavorited }))
+  // toggleFavorite = () => {
+  //   const drink = this.props.drinks.find(drink => drink.idDrink.toString() === this.props.match.params.id);
+  //   this.setState(state => ({ isFavorited: !state.isFavorited }))
+  //   if(this.state.isFavorited === true)
+  //   {return this.state.list.push[drink]}
 
-    console.log("id",this.props.drinks)
-    console.log("drunkkk",drink)
-    console.log("favs",this.props.favorites)
-  }
-  getImageName = () => this.state.isFavorited ? 'favorited' : 'notFavorited'
+  //   console.log("id",this.props.drinks)
+  //   console.log("drunkkk",drink)
+  //   console.log("favs",this.state.list)
+  // }
+
+  // getImageName = () => this.state.isFavorited ? 'favorited' : 'notFavorited'
 
   render() {
-
+      // const imageName = this.getImageName();
       const drink = this.props.drinks.find(drink => drink.idDrink.toString() === this.props.match.params.id);
       console.log(drink,"props")
       if(!drink ){
           return null
     }
+
+    // const imagesPath = {
+    //   notFavorited: require('./images/glass_not_favorited.png'),
+    //   favorited: require('./images/glass_favorited.png')
+    // }
 
     return (
       <>
@@ -77,8 +86,9 @@ export default class DrinkInfo extends Component {
     <Ingredient>{drink.strIngredient8}</Ingredient>
     <Ingredient>{drink.strIngredient9}</Ingredient>
     <Ingredient>{drink.strIngredient10}</Ingredient>
-    <Favorite>
-        <img src={imagesPath[imageName]} alt="Favorite" onClick={this.toggleFavorite} width="100" height="100"/>
+    <Favorite onClick={() => this.props.addFavorite(drink)}>
+        {/* <img src={imagesPath[imageName]} alt="Favorite" onClick={this.toggleFavorite} width="100" height="100"/> */}
+        add to fav
     </Favorite>
         <img src ={drink.strDrinkThumb} alt="Drink Pic" width="450" height="450"/>
   </Box>

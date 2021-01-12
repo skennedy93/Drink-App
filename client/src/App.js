@@ -26,6 +26,15 @@ export default class App extends Component {
       };
     }
   
+    addFavorite = favorite => {
+
+        this.setState({
+          favorites: [...this.state.favorites, favorite]
+        });
+      
+      console.log(this.state.favorites)
+    };
+
   componentDidMount() {
       fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
         .then(res => res.json())
@@ -42,6 +51,7 @@ export default class App extends Component {
             });
           }
         )
+        
     }
 
 
@@ -57,6 +67,7 @@ export default class App extends Component {
             <Route path="/drink/:id" render={props => <DrinkInfo {...props}
             drinks={this.state.drinks}
             favorites={this.state.favorites}
+            addFavorite={this.addFavorite}
             />}
             />
             <Route path='/favorites' render={props => <Favorites {...props}
