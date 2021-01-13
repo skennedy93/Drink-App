@@ -27,10 +27,12 @@ export default class App extends Component {
     }
   
     addFavorite = favorite => {
-
-        this.setState({
-          favorites: [...this.state.favorites, favorite]
-        });
+      
+        if(this.state.favorites.includes(favorite) === false){
+          this.setState({
+            favorites: [...this.state.favorites, favorite]
+          });
+        }
       
       console.log(this.state.favorites)
     };
