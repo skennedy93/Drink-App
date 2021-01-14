@@ -37,10 +37,6 @@ class Navbar extends Component {
 
     }
 
-    signOutHandler = () => {
-        localStorage.removeItem('jwt'); 
-        this.props.history.push('/'); 
-    }
 
     render() {
       return (
@@ -72,7 +68,7 @@ class Navbar extends Component {
                 </Link>
             </Page>
             </Links>
-            <Logout onClick = {this.signOutHandler}>Logout</Logout>
+            <Logout onClick = {this.props.signOutHandler}>Logout</Logout>
             </Contents>
         </Nav>
       );

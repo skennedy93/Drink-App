@@ -6,7 +6,7 @@ import Navbar from './Navbar'
 const Container = styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: space-between;
+justify-content: right;
 padding-top: 40px;
 `
 const Favorites = props =>{

@@ -26,10 +26,17 @@ padding-top: 40px;
       }
     }
 
+    signOutHandler = () => {
+      localStorage.removeItem('jwt'); 
+      this.props.history.push('/'); 
+  }
+
     render() {
       return (
         <>
-        <Navbar/>
+        <Navbar
+        signOutHandler = {this.signOutHandler}
+        />
         <Container> 
 
         {this.props.drinks.map(drink => (

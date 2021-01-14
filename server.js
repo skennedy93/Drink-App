@@ -94,6 +94,18 @@ server.post("/user/login", (req, res) => {
     })
 })
 
+
+//get all of the favorites for the user
+server.get("/user/favorites", protected,  (req, res) => {
+
+ 
+});
+//add a favorite to users list
+server.post("/user/addFavorite", (req, res) => {
+
+})
+
+
 server.listen(4400, () => {
   console.log("Server is listening on PORT 4400");
 });
